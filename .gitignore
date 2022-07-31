@@ -1,0 +1,3 @@
+git__pycache__/
+*.pyc
+db.sqlite3

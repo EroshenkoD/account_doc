@@ -1,0 +1,294 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+
+<head >
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <title>Учет КД</title>
+
+
+</head>
+
+
+<body style="background-color: #FFFACD">
+
+    <header class="pb-4 pt-4 mb-4" style="background-color: #FFA500" >
+
+            <div class="container" >
+                <form method="post">
+                    {% csrf_token %}
+                 <div class="row">
+
+                     <div class="col">
+                            <select class="form-select" required="" name="cipher_product">
+                                <option selected>Шифр изделия</option>
+                                {% for el in cipher_product%}
+                                    <option>{{el}}</option>
+                                {% endfor %}
+                            </select>
+                     </div>
+
+
+                     <div class="col">
+                            <select type="text" class="form-select" required="" name="prefix_decimal_number">
+                                <option selected>Код организации</option>
+                                {% for el in prefix_decimal_number%}
+                                    <option>{{el}}</option>
+                                {% endfor %}
+                            </select>
+                     </div>
+
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Регистрационный код" name="reg_kod">
+                    </div>
+
+                     <div class="col">
+                            <select type="text" class="form-select" required="" name="type_design_document">
+                                <option selected>Тип документа</option>
+                                {% for el in type_design_document%}
+                                    <option>{{el}}</option>
+                                {% endfor %}
+                            </select>
+                     </div>
+
+                     <div class="col">
+                            <select class="form-select" required="" name="type_file_design_document">
+                                <option selected>PDF</option>
+                                {% for el in type_file_document%}
+                                    <option>{{el}}</option>
+                                {% endfor %}
+                                <option>Все типы файла</option>
+                            </select>
+                     </div>
+
+                     <div class="col">
+                     <button type="submit" class="btn btn-primary">Поиск</button>
+                    </div>
+                </div>
+
+                    <div class="row pt-4">
+
+                        <div class="col "></div>
+
+                        <div class="col ">
+                            <div class="form-check ">
+                                <input type="checkbox" class="form-check-input " name="all_version">
+                                <label class="form-check-label" for="save-info">Показать все коррекции</label>
+                            </div>
+                        </div>
+
+                        <div class="col "></div>
+
+                        </div>
+
+                </form>
+            </div>
+
+
+    </header>
+
+    <main>
+        <div class="container" >
+        <div class="row">
+		
+        {% if all_obj %}
+            {% for key, value in all_obj.items%}
+                <div class="col-2 text-truncate text-center pb-4 " style="color: {{value.3.0.color_status_document}}" >
+                    <a href="/static/design_document/static/design_document/file_of_dd/test.pdf" style="color: {{value.3.0.color_status_document}}">{{key}}</a>
+                    <p>{{value.4}}<br/>{{value.5}}<br/>{{value.1}}<br/>{{value.2}}<br />{{value.3.0.name_status_document}}</p>
+                </div>
+            {% endfor %}
+
+        {% elif all_obj_all_format_file %}
+            {% for value in all_obj_all_format_file%}
+                <div class="col-2 text-truncate text-center pb-4 " style="color: {{value.6.0.color_status_document}}" >
+                    {% if value.0%}
+                        <a href="/static/design_document/static/design_document/file_of_dd/test.pdf" style="color: {{value.6.0.color_status_document}}">{{value.1}}</a>
+                    {% else %}
+                        <a href="{% static value.3 %}" style="color: {{value.6.0.color_status_document}}" download>{{value.1}}</a>
+                    {% endif %}
+                    <p>{{value.7}}<br/>{{value.2}}<br/>{{value.4}}<br/>{{value.5}}<br />{{value.6.0.name_status_document}}</p>
+
+                </div>
+            {% endfor %}
+
+        {% elif all_obj_all_version %}
+            {% for value in all_obj_all_version%}
+                <div class="col-2 text-truncate text-center pb-4 " style="color: {{value.6.0.color_status_document}}" >
+                    {% if value.0%}
+                        <a href="/static/design_document/static/design_document/file_of_dd/test.pdf" style="color: {{value.6.0.color_status_document}}">{{value.1}}</a>
+                    {% else %}
+                        <a href="{% static value.3 %}" style="color: {{value.6.0.color_status_document}}" download>{{value.1}}</a>
+                    {% endif %}
+                    <p>{{value.2}}<br/>{{value.7}}<br/>{{value.4}}<br/>{{value.5}}<br />{{value.6.0.name_status_document}}</p>
+
+                </div>
+            {% endfor %}
+
+        {% elif all_obj_all_version_all_format_file %}
+            {% for value in all_obj_all_version_all_format_file%}
+                <div class="col-2 text-truncate text-center pb-4 " style="color: {{value.6.0.color_status_document}}" >
+                    {% if value.0%}
+                        <a href="/static/design_document/static/d{% load static %}
+<!doctype html>
+<html lang="ru">
+
+<head >
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <title>Учет КД</title>
+
+
+</head>
+
+
+<body style="background-color: #FFFACD">
+
+    <header class="pb-4 pt-4 mb-4" style="background-color: #FFA500" >
+
+            <div class="container" >
+                <form method="post">
+                    {% csrf_token %}
+                 <div class="row">
+
+                     <div class="col">
+                            <select class="form-select" required="" name="cipher_product">
+                                <option selected>Шифр изделия</option>
+                                {% for el in cipher_product%}
+                                    <option>{{el}}</option>
+                                {% endfor %}
+                            </select>
+                     </div>
+
+
+                     <div class="col">
+                            <select type="text" class="form-select" required="" name="prefix_decimal_number">
+                                <option selected>Код организации</option>
+                                {% for el in prefix_decimal_number%}
+                                    <option>{{el}}</option>
+                                {% endfor %}
+                            </select>
+                     </div>
+
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Регистрационный код" name="reg_kod">
+                    </div>
+
+                     <div class="col">
+                            <select type="text" class="form-select" required="" name="type_design_document">
+                                <option selected>Тип документа</option>
+                                {% for el in type_design_document%}
+                                    <option>{{el}}</option>
+                                {% endfor %}
+                            </select>
+                     </div>
+
+                     <div class="col">
+                            <select class="form-select" required="" name="type_file_design_document">
+                                <option selected>PDF</option>
+                                {% for el in type_file_document%}
+                                    <option>{{el}}</option>
+                                {% endfor %}
+                                <option>Все типы файла</option>
+                            </select>
+                     </div>
+
+                     <div class="col">
+                     <button type="submit" class="btn btn-primary">Поиск</button>
+                    </div>
+                </div>
+
+                    <div class="row pt-4">
+
+                        <div class="col "></div>
+
+                        <div class="col ">
+                            <div class="form-check ">
+                                <input type="checkbox" class="form-check-input " name="all_version">
+                                <label class="form-check-label" for="save-info">Показать все коррекции</label>
+                            </div>
+                        </div>
+
+                        <div class="col "></div>
+
+                        </div>
+
+                </form>
+            </div>
+
+
+    </header>
+
+    <main>
+        <div class="container" >
+        <div class="row">
+		
+        {% if all_obj %}
+            {% for key, value in all_obj.items%}
+                <div class="col-2 text-truncate text-center pb-4 " style="color: {{value.3.0.color_status_document}}" >
+                    <a href="/static/design_document/static/design_document/file_of_dd/test.pdf" style="color: {{value.3.0.color_status_document}}">{{key}}</a>
+                    <p>{{value.4}}<br/>{{value.5}}<br/>{{value.1}}<br/>{{value.2}}<br />{{value.3.0.name_status_document}}</p>
+                </div>
+            {% endfor %}
+
+        {% elif all_obj_all_format_file %}
+            {% for value in all_obj_all_format_file%}
+                <div class="col-2 text-truncate text-center pb-4 " style="color: {{value.6.0.color_status_document}}" >
+                    {% if value.0%}
+                        <a href="/static/design_document/static/design_document/file_of_dd/test.pdf" style="color: {{value.6.0.color_status_document}}">{{value.1}}</a>
+                    {% else %}
+                        <a href="{% static value.3 %}" style="color: {{value.6.0.color_status_document}}" download>{{value.1}}</a>
+                    {% endif %}
+                    <p>{{value.7}}<br/>{{value.2}}<br/>{{value.4}}<br/>{{value.5}}<br />{{value.6.0.name_status_document}}</p>
+
+                </div>
+            {% endfor %}
+
+        {% elif all_obj_all_version %}
+            {% for value in all_obj_all_version%}
+                <div class="col-2 text-truncate text-center pb-4 " style="color: {{value.6.0.color_status_document}}" >
+                    {% if value.0%}
+                        <a href="/static/design_document/static/design_document/file_of_dd/test.pdf" style="color: {{value.6.0.color_status_document}}">{{value.1}}</a>
+                    {% else %}
+                        <a href="{% static value.3 %}" style="color: {{value.6.0.color_status_document}}" download>{{value.1}}</a>
+                    {% endif %}
+                    <p>{{value.2}}<br/>{{value.7}}<br/>{{value.4}}<br/>{{value.5}}<br />{{value.6.0.name_status_document}}</p>
+
+                </div>
+            {% endfor %}
+
+        {% elif all_obj_all_version_all_format_file %}
+            {% for value in all_obj_all_version_all_format_file%}
+                <div class="col-2 text-truncate text-center pb-4 " style="color: {{value.6.0.color_status_document}}" >
+                    {% if value.0%}
+                        <a href="/static/design_document/static/design_document/file_of_dd/test.pdf" style="color: {{value.6.0.color_status_document}}">{{value.1}}</a>
+                    {% else %}
+                        <a href="{% static value.3 %}" style="color: {{value.6.0.color_status_document}}" download>{{value.1}}</a>
+                    {% endif %}
+                    <p>{{value.2}}<br/>{{value.7}}<br/>{{value.4}}<br/>{{value.5}}<br />{{value.6.0.name_status_document}}</p>
+
+                </div>
+            {% endfor %}
+        {% elif err_mess %}
+            <p class="text-center">{{err_mess}}</p>
+        {% else %}
+                <p class="text-center">Укажите параметры поиска!</p>
+        {% endif %}
+
+        </div>
+        </div>
+    </main>
+
+</body>
+</html>
