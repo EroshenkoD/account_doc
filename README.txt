@@ -1,3 +1,5 @@
+На данный момент возникли проблемы с бесплатной версией Heroku и приложение не работает!
+
 Сайт для администрирования расположен по ссылке: https://accountdocument.herokuapp.com/admin/design_document/designdocument/
 
 Вход в Администрирование
